@@ -3,9 +3,6 @@ package com.kirelcodes.pokecraft.pokeballs;
 import java.util.Random;
 
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapedRecipe;
-
-import com.kirelcodes.pokecraft.Pokecraft;
 import com.kirelcodes.pokecraft.pokemons.Pokemon;
 import com.kirelcodes.pokecraft.pokemons.enums.PokeGender;
 import com.kirelcodes.pokecraft.pokemons.enums.PokeState;
@@ -13,7 +10,6 @@ import com.kirelcodes.pokecraft.pokemons.enums.PokeType;
 import com.kirelcodes.pokecraft.serializer.DynamicSerializer;
 
 import static com.kirelcodes.pokecraft.utils.NBTRW.*;
-
 public abstract class Ball {
 
 	protected static float rateBonus;
@@ -39,7 +35,6 @@ public abstract class Ball {
 		return rateBonus;
 	}
 	
-	public abstract ShapedRecipe getRecipe();
 	
 	public boolean containsPokemon(){
 		try {

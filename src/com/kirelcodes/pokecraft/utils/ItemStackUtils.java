@@ -34,7 +34,15 @@ public class ItemStackUtils {
 		is.setItemMeta(im);
 		return is;
 	}
-
+	public static void editItem(ItemStack is, String name, String... lore) {
+		if (is.getType() == Material.AIR)
+			return;
+		ItemMeta im = is.getItemMeta();
+		im.setDisplayName(name.replaceAll("&", "§"));
+		List<String> Lore = Arrays.asList(lore);
+		im.setLore(Lore);
+		is.setItemMeta(im);
+	}
 	public static ItemStack createItem(Material m, int i, String name,
 			String... lore) {
 		ItemStack is = new ItemStack(m, 1, (short) i);

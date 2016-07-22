@@ -89,4 +89,11 @@ public class NBTRW {
 		boolean result = (boolean) NMSnbtC.getMethod("getBoolean", String.class).invoke(NMSnbtO, Path);
 		return result;
 	}
+	public static boolean containsNBTTag(ItemStack is , String Path)throws Exception{
+		Object NMSisO = NMSClassInteracter.asNMSCopy(is);
+		Class<?> NMSisC = NMSisO.getClass();
+		Object NMSnbtO = NMSisC.getMethod("getTag").invoke(NMSisO);
+		return (boolean) NMSnbtO.getClass().getMethod("hasKey", String.class).invoke(NMSnbtO, Path);
+	}
+	
 }
