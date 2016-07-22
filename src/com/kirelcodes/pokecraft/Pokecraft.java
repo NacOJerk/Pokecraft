@@ -8,6 +8,7 @@ public class Pokecraft extends JavaPlugin{
 	public void onEnable() {
 		instance = this;
 	}
+	
 	public static Pokecraft getInstance() {
 		return instance;
 	}
