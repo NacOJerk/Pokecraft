@@ -1,15 +1,19 @@
 package com.kirelcodes.pokecraft.pokeballs;
 
+import static com.kirelcodes.pokecraft.utils.NBTRW.getNBTBoolean;
+import static com.kirelcodes.pokecraft.utils.NBTRW.getNBTString;
+import static com.kirelcodes.pokecraft.utils.NBTRW.writeNBT;
+
 import java.util.Random;
 
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+
 import com.kirelcodes.pokecraft.pokemons.Pokemon;
 import com.kirelcodes.pokecraft.pokemons.enums.PokeGender;
 import com.kirelcodes.pokecraft.pokemons.enums.PokeState;
 import com.kirelcodes.pokecraft.pokemons.enums.PokeType;
 import com.kirelcodes.pokecraft.serializer.DynamicSerializer;
-
-import static com.kirelcodes.pokecraft.utils.NBTRW.*;
 public abstract class Ball {
 
 	protected static float rateBonus;
@@ -19,11 +23,11 @@ public abstract class Ball {
 		this.item = item;
 	}
 	
-	public static boolean shouldCatch(Pokemon poke) {
-		return getCurrentCtachRate(poke)>1;
+	public static boolean shouldCatch(Pokemon poke, Player p) {
+		return getCurrentCtachRate(poke, p)>1;
 	}
 	
-	protected static double getCurrentCtachRate(Pokemon poke){
+	protected static double getCurrentCtachRate(Pokemon poke, Player p){
 		Random rand = new Random();
 		double rate = ((((3 * poke.getMaxHealth()) - (2 * poke
 				.getCurrentHealth())) * (poke.getCatchRate()) * getRateBonus()) / (3 * poke

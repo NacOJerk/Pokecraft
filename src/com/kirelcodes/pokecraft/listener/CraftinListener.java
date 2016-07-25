@@ -26,7 +26,7 @@ public class CraftinListener implements Listener{
 			ItemStack item = NBTRW.writeNBT(e.getCurrentItem(), "pokeball-type", clazz.getName());
 			e.setCurrentItem(item);
 		} catch (Exception e1) {
-			e.getInventory().getViewers().get(0).sendMessage(ChatColor.RED + "There has been a problem craftin your pokeball");
+			e.getInventory().getViewers().get(0).sendMessage(ChatColor.RED + "There has been a problem crafting your pokeball");
 			return;
 		}
 	}
