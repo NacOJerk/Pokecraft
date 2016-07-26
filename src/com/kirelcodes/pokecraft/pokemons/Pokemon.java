@@ -22,12 +22,12 @@ public class Pokemon {
 	private int level;
 	private PokeState status;
 	/**
-	 * Every pokemon in the game got a catch rate of his own, which impacts how
-	 * hard it is to catch him. More rare pokemon get higher catch rate.
+	 * The local pokemon catch rate which impacts its total rate.
+	 * Increases with the rarity of the pokemon.
 	 */
 	protected static float catchRate = 0;
 	/**
-	 * The pokemon max health
+	 * The pokemon's type max health
 	 */
 	protected static double maxHealth = 40;
 	/**
@@ -51,7 +51,7 @@ public class Pokemon {
 	 */
 	protected static String name = "pokemon";
 	/**
-	 * The pokemon type
+	 * The pokemon category-type
 	 */
 	protected static PokeType type;
 	private static APIMobContainer mobContainer = null;

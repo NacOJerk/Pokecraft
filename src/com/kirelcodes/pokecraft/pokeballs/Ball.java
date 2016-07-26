@@ -17,18 +17,36 @@ import com.kirelcodes.pokecraft.pokemons.enums.PokeType;
 import com.kirelcodes.pokecraft.serializer.DynamicSerializer;
 public abstract class Ball {
 
+	/**
+	 * Constant per-ball catch rate bonus
+	 */
 	protected static float rateBonus;
+	/**
+	 * The item containing the ball information
+	 */
 	protected ItemStack item;
 
 	public Ball(ItemStack item){
 		this.item = item;
 	}
 	
+	/**
+	 * Should the given player ctach the given pokemon
+	 * @param poke The pokemon which the player is trying to catch
+	 * @param p The player who throws the ball
+	 * @return If the ball succeeded to catch the given pokemon
+	 */
 	public static boolean shouldCatch(Pokemon poke, Player p) {
-		return getCurrentCtachRate(poke, p)>1;
+		return getCurrentCatchRate(poke, p)>1;
 	}
 	
-	protected static double getCurrentCtachRate(Pokemon poke, Player p){
+	/**
+	 * Retrieves the catch rate based on the pokemon and ball factor, with added light randomness
+	 * @param poke
+	 * @param p
+	 * @return A double from 0 to 2. Gets effected by many factors. above 1 is a catch.
+	 */
+	protected static double getCurrentCatchRate(Pokemon poke, Player p){
 		Random rand = new Random();
 		double rate = ((((3 * poke.getMaxHealth()) - (2 * poke
 				.getCurrentHealth())) * (poke.getCatchRate()) * getRateBonus()) / (3 * poke
@@ -36,11 +54,18 @@ public abstract class Ball {
 		return (rate + ((rand.nextDouble()/3)*2));
 	}
 
+	/**
+	 * 
+	 * @return Ball catch rate bonus
+	 */
 	public static float getRateBonus() {
 		return rateBonus;
 	}
 	
-	
+	/**
+	 * 
+	 * @return Does the ball contains a pokemon
+	 */
 	public boolean containsPokemon(){
 		try {
 			return getNBTBoolean(item, "containsPokemon");
@@ -52,6 +77,10 @@ public abstract class Ball {
 		}
 	}
 	
+	/**
+	 * Insert a pokemon to the ball nms
+	 * @param poke The pokemon to insert
+	 */
 	public void addPokemon(Pokemon poke){
 		DynamicSerializer ser = new DynamicSerializer();
 		ser.addObject("HP", poke.getCurrentHealth());
@@ -67,6 +96,11 @@ public abstract class Ball {
 		} catch (Exception e) {}
 	}
 
+	/**
+	 * Spawns the pokemon inside of the ball at the given location, and returns an instance of it
+	 * @param loc Location to spawn the pokemon
+	 * @return The spawned pokemon
+	 */
 	public Pokemon getPokemon(Location loc){
 		DynamicSerializer ser = new DynamicSerializer();
 		try {

@@ -3,6 +3,11 @@ package com.kirelcodes.pokecraft.utils;
 import org.bukkit.DyeColor;
 import org.bukkit.material.Dye;
 
+/**
+ * 
+ * @author Gal
+ *
+ */
 public enum Dyes {
 	
 	WHITE(DyeColor.WHITE), 
