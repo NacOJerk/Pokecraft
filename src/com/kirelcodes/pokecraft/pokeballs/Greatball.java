@@ -17,13 +17,12 @@ public class Greatball extends Ball {
 		ItemStack item = getSkull("http://textures.minecraft.net/texture/ecfaf610275f433a34e5317573ce1f9a0f667ce10cdf1d06c9eba5d9cb57047");
 		editItem(item, ChatColor.RED + "Greatball", ChatColor.RED
 				+ "Gotta catch them all!");
-		ShapedRecipe recipe = new ShapedRecipe(item)
+		ShapedRecipe recipe = new ShapedRecipe(item).shape("BDB" , "CBC" , "IGI")
 				.setIngredient('D', Dyes.RED.getMaterialData())
 				.setIngredient('B', Dyes.BLUE.getMaterialData())
 				.setIngredient('B', Material.STONE_BUTTON)
 				.setIngredient('I', Material.IRON_INGOT).setIngredient('G', Material.GOLD_INGOT)
-				.setIngredient('C', Material.CHEST).shape("BDB").shape("CBC")
-				.shape("IGI");
+				.setIngredient('C', Material.CHEST);
 		Bukkit.addRecipe(recipe);
 		PokeballManager.addPokeballType(item, Greatball.class);
 	}

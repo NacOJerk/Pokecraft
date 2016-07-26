@@ -21,13 +21,12 @@ public class Loveball extends Ball {
 		ItemStack item = getSkull("http://textures.minecraft.net/texture/b6114db71f6e4de3274abe6fe2cc4568a052694cd9c53c62d1415b8f4a235628");
 		editItem(item, ChatColor.RED + "Loveball", ChatColor.RED
 				+ "Gotta catch them all!");
-		ShapedRecipe recipe = new ShapedRecipe(item)
+		ShapedRecipe recipe = new ShapedRecipe(item).shape("HDH" , "CBC" , "III")
 				.setIngredient('D', Dyes.PINK.getMaterialData())
 				.setIngredient('H', Dyes.WHITE.getMaterialData())
 				.setIngredient('B', Material.STONE_BUTTON)
 				.setIngredient('I', Material.IRON_INGOT)
-				.setIngredient('C', Material.CHEST).shape("HDH").shape("CBC")
-				.shape("III");
+				.setIngredient('C', Material.CHEST);
 		Bukkit.addRecipe(recipe);
 		PokeballManager.addPokeballType(item, Loveball.class);
 	}

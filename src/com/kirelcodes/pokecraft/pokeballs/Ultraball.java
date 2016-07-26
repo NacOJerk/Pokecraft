@@ -17,13 +17,12 @@ public class Ultraball extends Ball {
 		ItemStack item = getSkull("http://textures.minecraft.net/texture/3d85c96efaefef11a1a35b117ca2f231c696e4e693b73a1bae77221607011e");
 		editItem(item, ChatColor.RED + "Ultraball", ChatColor.RED
 				+ "Gotta catch them all!");
-		ShapedRecipe recipe = new ShapedRecipe(item)
+		ShapedRecipe recipe = new ShapedRecipe(item).shape("BDB" , "CBC" , "GIG")
 				.setIngredient('D', Dyes.BLACK.getMaterialData())
 				.setIngredient('B', Dyes.YELLOW.getMaterialData())
 				.setIngredient('B', Material.STONE_BUTTON)
 				.setIngredient('I', Material.IRON_INGOT).setIngredient('G', Material.GOLD_INGOT)
-				.setIngredient('C', Material.CHEST).shape("BDB").shape("CBC")
-				.shape("GIG");
+				.setIngredient('C', Material.CHEST);
 		Bukkit.addRecipe(recipe);
 		PokeballManager.addPokeballType(item, Ultraball.class);
 	}

@@ -21,13 +21,12 @@ public class Repeatball extends Ball {
 		ItemStack item = getSkull("http://textures.minecraft.net/texture/17b2d4b7c2d73a9f7876e6b2e0a3b180c00348f97d6ffb56159b614ae33");
 		editItem(item, ChatColor.RED + "Repeatball", ChatColor.RED
 				+ "Gotta catch them all!");
-		ShapedRecipe recipe = new ShapedRecipe(item)
+		ShapedRecipe recipe = new ShapedRecipe(item).shape("HDH" , "CBC" , "III")
 				.setIngredient('D', Dyes.ORANGE.getMaterialData())
 				.setIngredient('H', Dyes.RED.getMaterialData())
 				.setIngredient('B', Material.STONE_BUTTON)
 				.setIngredient('I', Material.IRON_INGOT)
-				.setIngredient('C', Material.CHEST).shape("HDH").shape("CBC")
-				.shape("III");
+				.setIngredient('C', Material.CHEST);
 		Bukkit.addRecipe(recipe);
 		PokeballManager.addPokeballType(item, Repeatball.class);
 	}

@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.apache.commons.io.IOUtils;
 
+import com.google.common.io.Files;
 import com.kirelcodes.pokecraft.Pokecraft;
 
 /**
@@ -22,10 +23,10 @@ public class ModelLoader {
 	 * @throws IOException 
 	 */
 	public static File loadModelByName(String name) throws IOException{
-		File tempFile = File.createTempFile(name, ".mpet");
-	    tempFile.deleteOnExit();
+		File tempDir = Files.createTempDir();
+		File tempFile = new File(tempDir, name + ".mpet");
 	    FileOutputStream out = new FileOutputStream(tempFile);
-	    IOUtils.copy(Pokecraft.getInstance().getResource("/models/"+name+".mpet"), out);
+	    IOUtils.copy(Pokecraft.getInstance().getResource("models/"+name+".mpet"), out);
 	    return tempFile;
 	}
 

@@ -16,11 +16,10 @@ public class Pokeball extends Ball {
 		rateBonus = 1;
 		ItemStack item = getSkull("http://textures.minecraft.net/texture/8deb47d47c28a6a43fc5b8d0fa46b2defbac9cbd5ab34480325a2459be110f4");
 		editItem(item, ChatColor.RED + "Pokeball", ChatColor.RED + "Gotta catch them all!");
-		ShapedRecipe recipe = new ShapedRecipe(item)
+		ShapedRecipe recipe = new ShapedRecipe(item).shape("DDD" , "CBC" , "III")
 				.setIngredient('D', Dyes.RED.getMaterialData())
 				.setIngredient('B', Material.STONE_BUTTON)
-				.setIngredient('I', Material.IRON_INGOT).setIngredient('C', Material.CHEST).shape("DDD")
-				.shape("CBC").shape("III");
+				.setIngredient('I', Material.IRON_INGOT).setIngredient('C', Material.CHEST);
 		Bukkit.addRecipe(recipe);
 		PokeballManager.addPokeballType(item, Pokeball.class);
 	}

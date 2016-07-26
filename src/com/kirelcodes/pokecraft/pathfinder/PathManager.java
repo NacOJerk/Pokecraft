@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.bukkit.scheduler.BukkitRunnable;
 
+import com.kirelcodes.pokecraft.Pokecraft;
 import com.kirelcodes.pokecraft.pokemons.Pokemon;
 
 public class PathManager extends BukkitRunnable {
@@ -13,6 +14,7 @@ public class PathManager extends BukkitRunnable {
 	public PathManager(Pokemon pokemon) {
 		this.pokemon = pokemon;
 		paths = new ArrayList<>();
+		runTaskTimer(Pokecraft.getInstance(), 0L, 1L);
 	}
 
 	public void addPathfinder(BasicPathfinder path) {

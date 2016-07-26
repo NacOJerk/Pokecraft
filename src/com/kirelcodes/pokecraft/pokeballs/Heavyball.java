@@ -23,13 +23,12 @@ public class Heavyball extends Ball {
 		ItemStack item = getSkull("http://textures.minecraft.net/texture/db296f75cb2df67a84e81b391c5c98df27b0cef6704e9d29b0a26caa57fff2d1");
 		editItem(item, ChatColor.RED + "Heavyball", ChatColor.RED
 				+ "Gotta catch them all!");
-		ShapedRecipe recipe = new ShapedRecipe(item)
+		ShapedRecipe recipe = new ShapedRecipe(item).shape("HDH" , "CBC" , "IOI")
 				.setIngredient('D', Dyes.GRAY.getMaterialData())
 				.setIngredient('H', Dyes.CYAN.getMaterialData())
 				.setIngredient('B', Material.STONE_BUTTON)
 				.setIngredient('I', Material.IRON_INGOT).setIngredient('O', Material.OBSIDIAN)
-				.setIngredient('C', Material.CHEST).shape("HDH").shape("CBC")
-				.shape("III");
+				.setIngredient('C', Material.CHEST);
 		Bukkit.addRecipe(recipe);
 		PokeballManager.addPokeballType(item, Heavyball.class);
 	}

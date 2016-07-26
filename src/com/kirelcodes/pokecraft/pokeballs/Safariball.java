@@ -22,13 +22,12 @@ public class Safariball extends Ball {
 		ItemStack item = getSkull("http://textures.minecraft.net/texture/72eac5f499e312165364f1af152660cd3f18d94e2ed55b27dafe8cf842a794f1");
 		editItem(item, ChatColor.RED + "Safariball", ChatColor.RED
 				+ "Gotta catch them all!");
-		ShapedRecipe recipe = new ShapedRecipe(item)
+		ShapedRecipe recipe = new ShapedRecipe(item).shape("HDH" , "CBC" , "III")
 				.setIngredient('D', Dyes.ORANGE.getMaterialData())
 				.setIngredient('H', Dyes.GREEN.getMaterialData())
 				.setIngredient('B', Material.STONE_BUTTON)
 				.setIngredient('I', Material.IRON_INGOT)
-				.setIngredient('C', Material.CHEST).shape("HDH").shape("CBC")
-				.shape("III");
+				.setIngredient('C', Material.CHEST);
 		Bukkit.addRecipe(recipe);
 		PokeballManager.addPokeballType(item, Safariball.class);
 	}

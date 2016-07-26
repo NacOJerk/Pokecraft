@@ -1,3 +1,4 @@
 name: Pokecraft
 version: 0.1
 main: com.kirelcodes.pokecraft.Pokecraft
+depend: [MiniaturePets]
