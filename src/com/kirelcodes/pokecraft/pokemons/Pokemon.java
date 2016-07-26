@@ -1,6 +1,7 @@
 package com.kirelcodes.pokecraft.pokemons;
 
 import java.io.File;
+import java.util.Random;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
@@ -16,11 +17,11 @@ import com.kirelcodes.pokecraft.pokemons.enums.PokeType;
 
 public class Pokemon {
 
-	private PokeType type;
+	protected static PokeType type;
 	private PokeGender gender;
 	private float exp;
 	private int level;
-	private PokeState state;
+	private PokeState status;
 	/**
 	 * GAL FILL WAT IS CATCHRATE
 	 */
@@ -59,6 +60,7 @@ public class Pokemon {
 		}
 		anchorMob = mobContainer.spawnMob(loc);
 		pathManager = new PathManager(this);
+		setGender((new Random().nextBoolean()) ? PokeGender.MALE : PokeGender.FEMALE);
 	}
 
 	public static double getMaxHealth() {
@@ -90,7 +92,7 @@ public class Pokemon {
 	}
 
 	public PokeState getStatus() {
-		return state;
+		return status;
 	}
 
 	public APIMob getModelMob() {
@@ -139,5 +141,21 @@ public class Pokemon {
 	public void clearPathfinders(){
 		pathManager.clear();
 	}
+	
+	public void setEXP(float exp){
+		this.exp = exp;
+	}
+	
+	public void setLevel(int level){
+		this.level = level;
+	}
+	
+	public void setGender(PokeGender gender){
+		this.gender = gender;
+	}
+	
+	public void setState(PokeState status){
+		this.status = status;
+	} 
 	
 }

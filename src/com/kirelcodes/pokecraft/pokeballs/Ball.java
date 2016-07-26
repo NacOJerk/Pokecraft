@@ -6,6 +6,7 @@ import static com.kirelcodes.pokecraft.utils.NBTRW.writeNBT;
 
 import java.util.Random;
 
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -66,7 +67,7 @@ public abstract class Ball {
 		} catch (Exception e) {}
 	}
 
-	public Pokemon getPokemon(){
+	public Pokemon getPokemon(Location loc){
 		DynamicSerializer ser = new DynamicSerializer();
 		try {
 			ser.deserialize(getNBTString(item, "pokemon"));
@@ -77,6 +78,13 @@ public abstract class Ball {
 			PokeState status = PokeState.valueOf((String)ser.getObject("status"));
 			PokeType type = PokeType.valueOf((String)ser.getObject("type")); 
 			Class<? extends Pokemon> clazz = (Class<? extends Pokemon>) Class.forName((String)ser.getObject("class")); 
+			Pokemon poke = clazz.getConstructor(Location.class).newInstance(loc);
+			poke.setEXP(exp);
+			poke.setHealth(HP);
+			poke.setGender(gender);
+			poke.setLevel(level);
+			poke.setState(status);
+			return poke;
 		} catch (Exception e) {}
 		return null; 
 	}
