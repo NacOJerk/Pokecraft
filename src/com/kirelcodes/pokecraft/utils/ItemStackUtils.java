@@ -21,6 +21,11 @@ import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 
+/**
+ * 
+ * @author NacOJerk
+ *
+ */
 public class ItemStackUtils {
 
 	public static ItemStack createItem(Material m, String name, String... lore) {

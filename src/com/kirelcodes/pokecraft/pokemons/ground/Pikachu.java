@@ -1,15 +1,21 @@
 package com.kirelcodes.pokecraft.pokemons.ground;
 
+import java.io.IOException;
+
 import org.bukkit.Location;
 
-import com.kirelcodes.pokecraft.Pokecraft;
 import com.kirelcodes.pokecraft.pokemons.GroundPokemon;
+import com.kirelcodes.pokecraft.utils.ModelLoader;
 
-public class Pikachu extends GroundPokemon{
-	static{
+public class Pikachu extends GroundPokemon {
+	static {
 		name = "Pikachu";
-		model = Pokecraft.getInstance().getResource("/models/Pikachu.mpet");
+		try {
+			model = ModelLoader.loadModelByName("Pikachu");
+		} catch (IOException e) {
+		}
 	}
+
 	public Pikachu(Location loc) {
 		super(loc);
 	}
