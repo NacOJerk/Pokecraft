@@ -1,6 +1,7 @@
 package com.kirelcodes.pokecraft.pathfinder;
 
 public abstract class BasicPathfinder {
+	private boolean isRunning = false;
 	/**
 	 * When this method returns true the pathFinder would start working
 	 * 
@@ -44,5 +45,11 @@ public abstract class BasicPathfinder {
 	 */
 	public boolean canBeInterrupted() {
 		return true;
+	}
+	public boolean isRunning(){
+		return isRunning;
+	}
+	public void setRunning(boolean isRunning){
+		this.isRunning = isRunning;
 	}
 }

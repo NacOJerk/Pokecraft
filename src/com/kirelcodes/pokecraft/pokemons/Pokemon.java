@@ -8,6 +8,8 @@ import org.bukkit.entity.EntityType;
 
 import com.kirelcodes.miniaturepets.api.pets.APIMob;
 import com.kirelcodes.miniaturepets.api.pets.APIMobContainer;
+import com.kirelcodes.pokecraft.pathfinder.BasicPathfinder;
+import com.kirelcodes.pokecraft.pathfinder.PathManager;
 import com.kirelcodes.pokecraft.pokemons.enums.PokeGender;
 import com.kirelcodes.pokecraft.pokemons.enums.PokeState;
 import com.kirelcodes.pokecraft.pokemons.enums.PokeType;
@@ -49,13 +51,14 @@ public class Pokemon {
 	protected static String name = "pokemon";
 	private static APIMobContainer mobContainer = null;
 	private APIMob anchorMob = null;
-
+	private PathManager pathManager;
 	public Pokemon(Location loc) {
 		if (mobContainer == null) {
 			mobContainer = new APIMobContainer(model, name, maxHealth, speed,
 					anchorType, anchorTypeName);
 		}
 		anchorMob = mobContainer.spawnMob(loc);
+		pathManager = new PathManager(this);
 	}
 
 	public static double getMaxHealth() {
@@ -124,4 +127,17 @@ public class Pokemon {
 	public boolean onTargetLocation(){
 		return getModelMob().onTargetLocation();
 	}
+	
+	public boolean isDead(){
+		return getModelMob().getNavigator().isDead();
+	}
+	
+	public void addPathfinder(BasicPathfinder path){
+		pathManager.addPathfinder(path);
+	}
+	
+	public void clearPathfinders(){
+		pathManager.clear();
+	}
+	
 }
