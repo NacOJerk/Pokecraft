@@ -17,13 +17,13 @@ import com.kirelcodes.pokecraft.pokemons.enums.PokeType;
 
 public class Pokemon {
 
-	protected static PokeType type;
 	private PokeGender gender;
 	private float exp;
 	private int level;
 	private PokeState status;
 	/**
-	 * GAL FILL WAT IS CATCHRATE
+	 * Every pokemon in the game got a catch rate of his own, which impacts how
+	 * hard it is to catch him. More rare pokemon get higher catch rate.
 	 */
 	protected static float catchRate = 0;
 	/**
@@ -50,9 +50,14 @@ public class Pokemon {
 	 * The pokemon name
 	 */
 	protected static String name = "pokemon";
+	/**
+	 * The pokemon type
+	 */
+	protected static PokeType type;
 	private static APIMobContainer mobContainer = null;
 	private APIMob anchorMob = null;
 	private PathManager pathManager;
+
 	public Pokemon(Location loc) {
 		if (mobContainer == null) {
 			mobContainer = new APIMobContainer(model, name, maxHealth, speed,
@@ -60,7 +65,8 @@ public class Pokemon {
 		}
 		anchorMob = mobContainer.spawnMob(loc);
 		pathManager = new PathManager(this);
-		setGender((new Random().nextBoolean()) ? PokeGender.MALE : PokeGender.FEMALE);
+		setGender((new Random().nextBoolean()) ? PokeGender.MALE
+				: PokeGender.FEMALE);
 	}
 
 	public static double getMaxHealth() {
@@ -71,7 +77,7 @@ public class Pokemon {
 		return getModelMob().getHealth();
 	}
 
-	public PokeType getType() {
+	public static PokeType getType() {
 		return type;
 	}
 
@@ -110,6 +116,7 @@ public class Pokemon {
 	public void setHealth(double health) {
 		getModelMob().setHealth(health);
 	}
+
 	public void teleport(Location loc) {
 		getModelMob().teleport(loc);
 	}
@@ -118,44 +125,44 @@ public class Pokemon {
 		teleport(e.getLocation());
 	}
 
-	public boolean setTargetLocation(Location loc) throws Exception{
+	public boolean setTargetLocation(Location loc) throws Exception {
 		return getModelMob().setTargetLocation(loc);
 	}
-	
-	public Location getTargetLocation(){
+
+	public Location getTargetLocation() {
 		return getModelMob().getTargetLocation();
 	}
-	
-	public boolean onTargetLocation(){
+
+	public boolean onTargetLocation() {
 		return getModelMob().onTargetLocation();
 	}
-	
-	public boolean isDead(){
+
+	public boolean isDead() {
 		return getModelMob().getNavigator().isDead();
 	}
-	
-	public void addPathfinder(BasicPathfinder path){
+
+	public void addPathfinder(BasicPathfinder path) {
 		pathManager.addPathfinder(path);
 	}
-	
-	public void clearPathfinders(){
+
+	public void clearPathfinders() {
 		pathManager.clear();
 	}
-	
-	public void setEXP(float exp){
+
+	public void setEXP(float exp) {
 		this.exp = exp;
 	}
-	
-	public void setLevel(int level){
+
+	public void setLevel(int level) {
 		this.level = level;
 	}
-	
-	public void setGender(PokeGender gender){
+
+	public void setGender(PokeGender gender) {
 		this.gender = gender;
 	}
-	
-	public void setState(PokeState status){
+
+	public void setState(PokeState status) {
 		this.status = status;
-	} 
-	
+	}
+
 }
