@@ -22,8 +22,8 @@ public class Pokemon {
 	private int level;
 	private PokeState status;
 	/**
-	 * The local pokemon catch rate which impacts its total rate.
-	 * Increases with the rarity of the pokemon.
+	 * The local pokemon catch rate which impacts its total rate. Increases with
+	 * the rarity of the pokemon.
 	 */
 	protected static float catchRate = 0;
 	/**
@@ -64,7 +64,12 @@ public class Pokemon {
 					anchorType, anchorTypeName);
 		}
 		anchorMob = mobContainer.spawnMob(loc);
+		try {
+			anchorMob.clearAI();
+		} catch (Exception e) {
+		}
 		pathManager = new PathManager(this);
+
 		setGender((new Random().nextBoolean()) ? PokeGender.MALE
 				: PokeGender.FEMALE);
 	}
