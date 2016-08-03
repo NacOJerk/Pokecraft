@@ -5,9 +5,9 @@ import org.bukkit.entity.EntityType;
 
 public class WaterPokemon extends Pokemon {
 	static {
-		anchorType = EntityType.SQUID;
-		anchorTypeName = "Squid";
-		name = "waterPokemon";
+		WaterPokemon.anchorType = EntityType.SQUID;
+		WaterPokemon.anchorTypeName = "Squid";
+		WaterPokemon.name = "waterPokemon";
 	}
 
 	public WaterPokemon(Location loc) {

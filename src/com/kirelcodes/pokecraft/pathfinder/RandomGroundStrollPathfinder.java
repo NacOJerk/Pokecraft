@@ -30,7 +30,9 @@ public class RandomGroundStrollPathfinder extends BasicPathfinder{
 	}
 	@Override
 	public void updateTask() {
-		if((clock % 100) != 0)
+		if((clock % 30) != 0)
+			return;
+		if(!rand.nextBoolean())
 			return;
 		int x1 = rand.nextInt(11) - 5;
 		int x = pokemon.getLocation().clone().add(x1, 0, 0).getBlockX();

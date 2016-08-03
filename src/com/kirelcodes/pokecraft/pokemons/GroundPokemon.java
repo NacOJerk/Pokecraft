@@ -8,9 +8,9 @@ import com.kirelcodes.pokecraft.pathfinder.RandomGroundStrollPathfinder;
 
 public class GroundPokemon extends Pokemon{
 	static{
-		anchorType = EntityType.ZOMBIE;
-		anchorTypeName = "Zombie";
-		name = "groundPokemon";
+		GroundPokemon.anchorType = EntityType.ZOMBIE;
+		GroundPokemon.anchorTypeName = "Zombie";
+		GroundPokemon.name = "groundPokemon";
 	}
 	public GroundPokemon(Location loc) {
 		super(loc);

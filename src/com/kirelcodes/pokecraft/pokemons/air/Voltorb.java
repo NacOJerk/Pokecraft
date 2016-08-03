@@ -8,16 +8,15 @@ import com.kirelcodes.pokecraft.utils.ModelLoader;
 
 public class Voltorb extends FlyingPokemon {
 	static {
-		name = "Voltorb";
+		Voltorb.name = "Voltorb";
 		try {
-			model = ModelLoader.loadModelByName("Voltorb");
+			Voltorb.model = ModelLoader.loadModelByName("Voltorb");
 		} catch (Exception e) {
 		}
-		type = PokeType.ELECTRIC;
-		speed = 0.2;
-		maxHealth = 40;
-		catchRate = 190;
-
+		Voltorb.type = PokeType.ELECTRIC;
+		Voltorb.speed = 0.2;
+		Voltorb.maxHealth = 40;
+		Voltorb.catchRate = 190;
 	}
 
 	public Voltorb(Location loc) {

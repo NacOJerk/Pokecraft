@@ -10,15 +10,15 @@ import com.kirelcodes.pokecraft.utils.ModelLoader;
 
 public class Pikachu extends GroundPokemon {
 	static {
-		name = "Pikachu";
+		Pikachu.name = "Pikachu";
 		try {
-			model = ModelLoader.loadModelByName("Pikachu");
+			Pikachu.model = ModelLoader.loadModelByName("Pikachu");
 		} catch (IOException e) {
 		}
-		type = PokeType.ELECTRIC;
-		speed = 0.16;
-		maxHealth = 35;
-		catchRate = 190;
+		Pikachu.type = PokeType.ELECTRIC;
+		Pikachu.speed = 0.16;
+		Pikachu.maxHealth = 35;
+		Pikachu.catchRate = 190;
 	}
 
 	public Pikachu(Location loc) {
