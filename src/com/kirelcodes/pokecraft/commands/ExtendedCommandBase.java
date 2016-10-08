@@ -128,7 +128,6 @@ public abstract class ExtendedCommandBase {
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return getCommand();
 	}
 }

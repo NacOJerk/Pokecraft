@@ -22,7 +22,7 @@ public class CommandLoader {
 			@Override
 			public List<String> tabComplete(CommandSender sender, String alias,
 					String[] args) {
-				// TODO Auto-generated method stub
+
 				return null;
 			}
 			
@@ -40,7 +40,7 @@ public class CommandLoader {
 			@Override
 			public List<String> tabComplete(CommandSender sender, String alias,
 					String[] args) {
-				// TODO Auto-generated method stub
+
 				return null;
 			}
 			

@@ -40,7 +40,6 @@ public class NMSClassInteracter {
 		try {
 			return Class.forName(name);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 

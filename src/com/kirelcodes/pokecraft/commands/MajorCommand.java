@@ -41,7 +41,6 @@ public class MajorCommand extends BukkitCommand{
 		try {
 			return Class.forName(name);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;// Getting class
 
